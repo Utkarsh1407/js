@@ -20,7 +20,7 @@ const jsUser={
 // console.log(jsUser["email"]);
 
 // console.log(jsUser["full name"]);
-// console.log(typeof jsUser[mySym]);
+console.log(typeof jsUser[mySym]);
 
 jsUser.email="utkarsh@chatgpt.com"
 Object.freeze(jsUser)
@@ -39,5 +39,3 @@ jsUser.greeting = function(){
 jsUser.greetingTwo = function(){
     console.log(`Hello JS user, ${this.name}`);
 }
-console.log(jsUser.greeting());
-console.log(jsUser.greetingTwo());

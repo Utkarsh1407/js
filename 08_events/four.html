@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ctr1{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="four.js"> -->
+</head>
+<body>
+    <div class="ctr1">
+        <button> HOME</button>
+        <button> YOUTUBE CHANNEL</button>
+    </div>
+
+    <div class="body">
+        <div><h2>Start should change the background color every second</h2></div>
+        <button class="start">Start</button>
+        <button class="stop">Stop</button>
+    </div>
+</body>
+
+<script>
+    const hex = "0123456789ABCDEF"
+
+const randomColor = function () {
+    let color = "#"
+    for (let i = 0; i < 6; i++) {
+        color = color + hex[Math.floor(Math.random() * 16)]
+    }
+    return color
+}
+const Color= randomColor()
+console.log(Color)
+
+let intervalId;
+
+const startChangingColor= function(){
+    if(!intervalId){
+        intervalId= setInterval(changeBgColor,1000)
+    }
+    function changeBgColor(){
+        document.body.style.backgroundColor= randomColor(); 
+    }
+}
+const stopChangingColor= function(){
+    clearInterval(intervalId);
+    intervalId=null;
+    
+}
+
+document.querySelector(".start").addEventListener('click', startChangingColor);
+document.querySelector(".stop").addEventListener("click", stopChangingColor);
+</script>
+</html>
